@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- <div id="container">
+        <h1 id="heading" style="color: aqua;">
+            후미진 언덕 그 어디
+        </h1>
+        <div id="prodImg"></div>
+    </div>
+
+    <script>
+        // id 선택자로 노드 접근하기 (id는 유일한 식별자)
+        let node1 = document.getElementById("heading"); // 여기는 # 붙이지 않아도 됨
+        console.log(node1); // 노드 자체가 나옴
+                            // <h1 id="heading" style="color: aqua;"> 후미진 언덕 그 어디 </h1>
+        console.log(node1.textContent); // 노드 내 텍스트에 접근
+        let headingStyle = node1.style; // node1에 적용되어 있는 스타일 목록
+        console.log(headingStyle.color); // node1에 적용되어 있는 스타일 중 color의 속성값
+    </script> -->
+
+    <!-- <div id="container">
+        <h1 id="heading" class="m--heading" style="color: aqua;">
+            후미진 언덕 그 어디
+        </h1>
+        <div id="prodImg"></div>
+    </div>
+
+    <script>
+        // getElementByClassName는 HTML 컬렉션 타입을 반환함 -> 인덱스 연산자[]로 접근
+        // class 선택자로 노드 접근
+        let headingNode = document.getElementsByClassName("m--heading"); // 해당 메서드는 배열을 반환함 (클래스는 여러 요소가 가질 수 있으므로)
+        console.log(headingNode[0].textContent);
+        console.log(headingNode[0].style.color);
+    </script> -->
+
+    <div id="container">
+        <h1 id="heading" class="m--heading" style="color: aqua;">
+            후미진 언덕 그 어디
+        </h1>
+        <div id="prodImg"></div>
+    </div>
+
+    <script>
+        // 태그 선택자로 노드 접근
+        let headingNode = document.getElementsByTagName("h1"); // 해당 메서드는 HTML 컬렉션 타입을 반환함 (클래스는 여러 요소가 가질 수 있으므로)
+        console.log(headingNode);
+        console.log(headingNode[0].textContent);
+        console.log(headingNode[0].style.color);
+    </script>
+
+    
+</body>
+</html>

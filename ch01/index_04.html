@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 익명 함수
+        // add는 함수 자체를 의미함
+        let add = function(a, b) {
+	        return a + b;
+        }
+        console.log(add); // 이러면 함수 식이 출력됨
+        console.log(add(10, 10)); // 함수에 인수를 넣어서 값을 출력함
+    </script>
+
+    <script>
+        // 즉시 실행 함수
+        // 즉시 함수를 실행해서 result2에 담음
+        let result2 = (function() {
+            return 10 + 10;
+        })();
+        console.log(result2);
+        
+        console.log(result2()); // 에러 : result2는 함수 식이 아니라 값이 담긴 상태
+    </script>
+</body>
+</html>

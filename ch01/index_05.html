@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 익명 함수
+        const hi = function(){
+            return "반가워";
+        }
+        console.log(hi()); // 값
+
+        // 화살표 함수 (위 함수를 축약)
+        const hi2 = () => {return "야 반가워"}
+
+        console.log(hi2); // 함수
+        console.log(hi2()); // 값
+
+        /*
+         * 화살표 함수를 사용할 때 return 키워드 생략 여부 
+         * 짧은 코드라면 return 생략 가능
+         */
+        const hi3 = () => "야 반가워"; // hi2와 동일
+      
+        let sum1 = (a, b) => {return a + b};
+        // 단, return 키워드를 사용한다면 반드시 중괄호와 함께
+        let sum2 = (a, b) => a + b; // sum1과 sum2 동일
+
+        const bye1 = (name) => name + "아 잘가";
+        console.log(bye1("서영"));
+
+    </script>
+</body>
+</html>

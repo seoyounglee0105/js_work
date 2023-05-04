@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 객체 리터럴 타입
+        const book = {
+            title: "플러터 UI 실전",
+            author: "김근호",
+            pages: "200",
+            price: 18000,
+            info: function() {
+                alert(`${this.title}은 ${this.pages}쪽입니다.`);
+            }
+        };
+
+        book.title = "스프링부트 JPA";
+
+        // 사용하는 모양
+        console.log(book.title);
+        console.log(book.author);
+        console.log(book.pages);
+        // book.info();
+    </script>
+
+    <script>
+        let person = {
+            name: "이서영",
+            age: 24,
+            gender: "여성",
+            info: function() {
+                alert(`${this.name}님 안녕하세요.`);
+            }
+        };
+
+        // person.info();
+    </script>
+
+</body>
+</html>

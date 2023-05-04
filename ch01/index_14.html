@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <!-- return false; : 이벤트 발생 후 브라우저의 기본 동작을 막기 위해 사용함 -->
+        <!-- 버튼 클릭 이벤트가 발생하면 changeImg() 함수를 실행함 -->
+        <!-- 만약 이벤트 핸들러에서 return false; 문장을 사용하지 않으면, 브라우저는 버튼 클릭 이벤트에 대해 기본 동작을 수행함 -->
+        <!-- 원래는 /account로 폼이 전송되어야 하는데, 저렇게 하면 안넘어감 (기본 동작 수행 x)-->
+        <form action="/account" method="get">
+            <img src="../js/img1.png" style="width: 200px; height: 200px;" alt="">
+            <br><br>
+            <button onclick="return false;" id="btnChange">이미지 변경하기</button>
+        </form>
+        <script>
+            let isImageChange = false;
+            let btnChangeNode = document.querySelector("#btnChange");
+            // 이벤트 리스너
+            // 이벤트 유형, 함수명 (괄호 없이), 캡쳐 여부 (생략 가능)
+            btnChangeNode.addEventListener("click", changeImage);
+            btnChangeNode.addEventListener("mouseover", changeImage, false);
+            btnChangeNode.addEventListener("mouseout", changeImage, false);
+
+            // 토글 기능
+            function changeImage() {
+                let imgNode = document.querySelector("img");
+                
+                if (isImageChange) {
+                    imgNode.src = "../js/img2.png";
+                } else {
+                    imgNode.src = "../js/img1.png";
+                }
+                isImageChange = !isImageChange;
+            }
+        </script>
+    </div>
+</body>
+</html>
