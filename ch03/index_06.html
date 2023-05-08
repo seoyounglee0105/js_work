@@ -50,10 +50,8 @@
             }).done((data, textStatus, xhr) => {
                 let todo = xhr.responseJSON;
                 console.log(todo.title);
-                $(`#li--${i}`).append(`<input type='checkbox' id='check--${i}'>&nbsp;`)
-                $(`#li--${i}`).append(`<label for='check--${i}'>${todo.title}</label`);
-                $(`#li--${i}`).css("border-bottom", "1px solid #ccc");
-                $(`#li--${i}`).css("padding", "5px 0");
+
+                render(todo.title);
 
             }).fail((error) => {
                 console.log(error);
@@ -62,28 +60,25 @@
 
         }
 
-        function render() {
+        function render(title) {
             // 화면 그리는 함수
             let el = $("<li></li>");
             el.attr("id", `li--${num}`);
+
+            el.append(`<input type='checkbox' id='check--${num}'>&nbsp;`)
+            el.append(`<label for='check--${num}'>${title}</label`);
+            el.css("border-bottom", "1px solid #ccc");
+            el.css("padding", "5px 0");
             
             $(".todos--ul").append(el);
-            
-            fetchAjax(num);
             num++;
         }
-
-        $(document).ready(function() {
-            $(".btn").on("click", function() {
-                render();
-            });
-        })
     </script>
 
 
     <div class="container">
         <h1>To-Do List</h1>
-        <button onclick="render()">todo 가져오기</button>
+        <button onclick="fetchAjax(num)">todo 가져오기</button>
 
         <ul class="todos--ul"></ul>
     </div>
