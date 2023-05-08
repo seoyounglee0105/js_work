@@ -31,14 +31,15 @@
     <script>
         function makeCard(id) {
             let card = $("<div></div>")
-            $(card).attr("class", "card");
-            $(card).attr("id", `card--${id}`);
+            card.attr("class", "card");
+            card.attr("id", `card--${id}`);
 
-            $(card).html(`
+            card.append(`
                 <h3>제목 ${id}입니다.</h3>
                 <p>내용 ${id}입니다.</p>
                 <button onclick="del(${id})">삭제</button> 
             `);
+
             return card;
         }
 

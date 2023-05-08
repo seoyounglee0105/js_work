@@ -38,20 +38,23 @@
 </head>
 <body>
     <script>
-        let num = 1;
+        let num = 0;
 
-        function fetchAjax(i) {
+        function fetchAjax() {
             // 통신
             $.ajax({
                 type : "get",
-                url : `https://jsonplaceholder.typicode.com/todos/${i}`,
+                url : `https://jsonplaceholder.typicode.com/todos`,
                 contentType : "application/json; charset=utf-8"
 
             }).done((data, textStatus, xhr) => {
                 let todo = xhr.responseJSON;
                 console.log(todo.title);
 
-                render(todo.title);
+                for (let i = 0; i < 10; i++) {
+                    render(i, todo[i].title);
+
+                };
 
             }).fail((error) => {
                 console.log(error);
@@ -60,7 +63,7 @@
 
         }
 
-        function render(title) {
+        function render(num, title) {
             // 화면 그리는 함수
             let el = $("<li></li>");
             el.attr("id", `li--${num}`);
@@ -71,17 +74,25 @@
             el.css("padding", "5px 0");
             
             $(".todos--ul").append(el);
-            num++;
+            $(`#check--${num}`).on("click", function() {
+                if ($(`#check--${num}`).is(":checked")) {
+                    $(`#check--${num}`).siblings().css("text-decoration", "line-through");
+                } else {
+                    $(`#check--${num}`).siblings().css("text-decoration", "none");
+                }
+            });
+
         }
+
     </script>
 
 
     <div class="container">
         <h1>To-Do List</h1>
-        <button onclick="fetchAjax(num)">todo 가져오기</button>
+        <button onclick="fetchAjax()">todo 가져오기</button>
 
         <ul class="todos--ul"></ul>
     </div>
-    
+
 </body>
 </html>
