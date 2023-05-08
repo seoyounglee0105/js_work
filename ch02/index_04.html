@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+    <p>여기는 p 태그</p>
+    <button id="myBtn">클릭</button>
+
+    <script>
+        /*
+        * $(this).hide(); // 현재 요소를 숨김
+        * $("p").hide(); // <p> 요소를 모두 숨김
+        * $(".temp").hide(); // temp라는 클래스를 가진 요소를 모두 숨김
+        * $("#temp").hide(); // temp라는 아이디를 가진 요소를 숨김
+        */ 
+        
+        // 웹 문서 로딩이 완료되면 동작하라는 의미
+        // $(document).ready(function() {
+
+        // });
+    </script>
+
+    <script>
+        // jQuery로 버튼을 눌렀을 때 p 태그 요소를 숨김 처리해주세요.
+        $(document).ready(function() {
+            $("#myBtn").on("click", function() {
+                $("p").toggle();
+            })
+        })
+
+    </script>
+
+</body>
+</html>

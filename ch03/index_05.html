@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        // 습관적으로 넣기 (script를 대상 요소보다 위에 작성해도 오류가 발생하지 않도록)
+        $(document).ready(function() {
+            // jQuery 통신 코드 사용 방법
+            // $("#okBtn").on("click", () => {
+            //     // 익숙해지기 전까지는 먼저 이렇게 작성하고 시작하기
+            //     $.ajax({
+            //         // 통신 설정 : header, body 설정 등
+
+            //     }).done((data, textStatus, xhr) => {
+            //         // 통신 성공 시 콜백 들어옴
+
+            //     }).fail((error) => {
+            //         // 통신 실패 시 콜백 들어옴
+                    
+            //     });
+
+            // });
+            $("#okBtn").on("click", () => {
+                $.ajax({
+                    type : "get", 
+                    url : "https://jsonplaceholder.typicode.com/posts/1",
+                    contentType : "application/json; charset=utf-8",
+                    // dataType : "json" // 문자열을 자동으로 json object로 파싱 처리하라   
+
+                }).done((data, textStatus, xhr) => {
+                    // console.log("data " + data);
+                    // console.log(typeof data);
+                    // console.log(textStatus); // 통신 성공 여부 (성공 시 success)
+                    // console.log(xhr);
+                    let todo = xhr.responseJSON;
+                    console.log(todo);
+                    $("#result").append(todo.title);
+
+                }).fail((error) => {
+                    console.log("error : " + error);
+
+                });
+
+            });
+        });
+    </script>
+
+    <button id="okBtn">통신요청</button>
+    <div id="result"></div>
+</body>
+</html>

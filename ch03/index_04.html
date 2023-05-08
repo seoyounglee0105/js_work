@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="result">
+        
+    </div>
+    <button onclick="fetchTodo()">통신 요청</button>
+
+    <script>
+        // https://jsonplaceholder.typicode.com/todos/1
+        // async -> 비동기 함수가 되기 위한 키워드
+        // await -> Promise가 처리될 때까지 기다리는 키워드
+        async function fetchTodo() {
+
+            try {
+                // 통신할 사이트 주소를 인수로
+                let response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+                console.log(typeof response);
+                console.log(response);
+                
+                console.log("-----------------");
+                let todo = await response.json();
+                // json 문자열을 JS object로 자동으로 파싱 처리됨
+                console.log(typeof todo);
+                console.log(todo.id);
+                console.log(todo.userId);
+                console.log(todo.title);
+                console.log(todo.completed);
+
+            } catch (error) {
+                console.log(error);
+
+            }
+
+
+
+
+
+        }
+
+    </script>
+</body>
+</html>

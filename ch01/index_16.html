@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        ul {
+            list-style: none;
+        }
+
+        legend {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+        form {
+            width: 520px;
+            height: auto;
+            padding-left: 10px;
+            margin: 50px auto;
+        }
+
+        fieldset {
+            border: 1px solid #c0c0c0;
+            padding: 30px 20px;
+        }
+
+        .field {
+            width: 350px;
+            height: 35px;
+            border: 1px solid #aaa;
+            padding: 5px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .input--box {
+            float: left;
+            width: 60px;
+            margin-right: 15px;
+            line-height: 52px;
+        }
+
+        .order--btn {
+            width: 100%;
+            padding: 20px;
+            margin-top: 10px;
+            border: 1px solid #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <form name="order">
+            <fieldset>
+                <legend>주문정보</legend>
+                <ul>
+                    <li>
+                        <label for="billingName" class="input--box">이름 : </label>
+                        <input type="text" class="field" id="billingName" name="billingName">
+                    </li>
+                    <li>
+                        <label for="billingTel" class="input--box">연락처 : </label>
+                        <input type="text" class="field" id="billingTel" name="billingTel">
+                    </li>
+                    <li>
+                        <label for="billingAddr" class="input--box">주소 : </label>
+                        <input type="text" class="field" id="billingAddr" name="billingAddr">
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+        
+        <form name="ship">
+            <fieldset>
+                <legend>배송정보</legend>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="shippingInfo" name="shippingInfo">
+                        <label for="shippingInfo">주문 정보와 배송 정보가 같습니다</label>
+                    </li>
+                    <li>
+                        <label for="shippingName" class="input--box">이름 : </label>
+                        <input type="text" class="field" id="shippingName" name="shippingName">
+                    </li>
+                    <li>
+                        <label for="shippingTel" class="input--box">연락처 : </label>
+                        <input type="text" class="field" id="shippingTel" name="shippingTel">
+                    </li>
+                    <li>
+                        <label for="shippingAddr" class="input--box">주소 : </label>
+                        <input type="text" class="field" id="shippingAddr" name="shippingAddr">
+                    </li>
+                </ul>
+            </fieldset>
+            <button type="submit" class="order--btn">결제하기</button>
+        </form>
+
+    </div>
+
+    <script>
+        // 체크 여부 확인
+        let check = document.querySelector("#shippingInfo");
+        // 이벤트 리스너 등록
+        check.addEventListener("click", function() {
+            if (check.checked == true) {
+                document.querySelector("#shippingName").value = document.querySelector("#billingName").value;
+                document.querySelector("#shippingTel").value = document.querySelector("#billingTel").value;
+                document.querySelector("#shippingAddr").value = document.querySelector("#billingAddr").value;
+            } else {
+                document.querySelector("#shippingName").value = "";
+                document.querySelector("#shippingTel").value = "";
+                document.querySelector("#shippingAddr").value = "";
+            }
+            console.log(document.forms); // document.forms : 해당 문서의 form들을 selection 타입으로 반환
+            console.log(document.forms[0].elements[1].value); // 폼 요소에 접근
+            console.log(document.forms[0].elements[2].value); // 폼 요소에 접근
+            console.log(document.forms[0].elements[3].value); // 폼 요소에 접근
+        });        
+    </script>
+
+</body>
+</html>

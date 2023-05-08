@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .like--heart {
+            font-size: 100px;
+            color: gray;
+            cursor: pointer;
+        }
+
+        /* like--heart와 liked 클래스를 모두 가진 요소에 대해 적용 */
+        .like--heart.liked {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <span class="like--heart" onclick="likeToggle()">&#10084;</span>
+    <script>
+        function likeToggle() {
+            let likeHeart = document.querySelector(".like--heart");
+            console.log(likeHeart);
+            console.log(likeHeart.classList);
+            likeHeart.classList.toggle('liked'); // 누를 때마다 liked 클래스가 생성됐다가 제거됐다가 토글로
+            // DOMTokenList --> 사용할 수 있는 메서드 확인 가능
+        }
+    </script>
+</body>
+</html>

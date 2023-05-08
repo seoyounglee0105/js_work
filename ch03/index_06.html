@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container h1 {
+            margin-bottom: 30px;
+        }
+
+        .container button {
+            padding: 2px 7px;
+        }
+
+        .container {
+            width: 400px;
+            text-align: center;
+            border: 3px solid red;
+            padding: 10px 0 20px;
+        }
+
+        .todos--ul {
+            list-style: none;
+            text-align: left;
+            margin: 20px 30px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+        let num = 1;
+
+        function fetchAjax(i) {
+            // 통신
+            $.ajax({
+                type : "get",
+                url : `https://jsonplaceholder.typicode.com/todos/${i}`,
+                contentType : "application/json; charset=utf-8"
+
+            }).done((data, textStatus, xhr) => {
+                let todo = xhr.responseJSON;
+                console.log(todo.title);
+                $(`#li--${i}`).append(`<input type='checkbox' id='check--${i}'>&nbsp;`)
+                $(`#li--${i}`).append(`<label for='check--${i}'>${todo.title}</label`);
+                $(`#li--${i}`).css("border-bottom", "1px solid #ccc");
+                $(`#li--${i}`).css("padding", "5px 0");
+
+            }).fail((error) => {
+                console.log(error);
+
+            });
+
+        }
+
+        function render() {
+            // 화면 그리는 함수
+            let el = $("<li></li>");
+            el.attr("id", `li--${num}`);
+            
+            $(".todos--ul").append(el);
+            
+            fetchAjax(num);
+            num++;
+        }
+
+        $(document).ready(function() {
+            $(".btn").on("click", function() {
+                render();
+            });
+        })
+    </script>
+
+
+    <div class="container">
+        <h1>To-Do List</h1>
+        <button onclick="render()">todo 가져오기</button>
+
+        <ul class="todos--ul"></ul>
+    </div>
+    
+</body>
+</html>

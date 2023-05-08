@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+    <!-- jQuery -->
+    <!--
+        적게 작성하고, 더 많이 수행하는 경량 JavaScript 라이브러리
+
+        jQuery의 목적
+        >> 웹 사이트에서 js를 훨씬 더 쉽게 사용할 수 있도록 하는 것
+
+        HTML/DOM 처리
+        CSS 핸들링 가능
+        이벤트 등록 및 삭제 핸들링 가능
+        애니메이션 처리를 쉽게 사용
+        AJAX (비동기 통신 처리) 가능
+    -->
+
+
+    <button id="myBtn">click me</button>
+
+    <script>
+        // querySelector 간소화 $("요소")
+        // .addEventListener() 간소화 .on()
+        $("#myBtn").on("click", function() {
+            alert("hello world!");
+        });
+    </script>
+</body>
+</html>
