@@ -7,6 +7,7 @@
     <title>Document</title>
     <style>
         .like--heart {
+            margin: 100px;
             font-size: 100px;
             color: gray;
             cursor: pointer;
@@ -19,14 +20,15 @@
     </style>
 </head>
 <body>
+    <!-- HTML 심볼 활용 -->
     <span class="like--heart" onclick="likeToggle()">&#10084;</span>
     <script>
         function likeToggle() {
             let likeHeart = document.querySelector(".like--heart");
-            console.log(likeHeart);
-            console.log(likeHeart.classList);
-            likeHeart.classList.toggle('liked'); // 누를 때마다 liked 클래스가 생성됐다가 제거됐다가 토글로
-            // DOMTokenList --> 사용할 수 있는 메서드 확인 가능
+
+            // 누를 때마다 liked 클래스가 생성됐다가 제거됐다가 토글로
+            likeHeart.classList.toggle('liked'); 
+            // 콘솔의 DOMTokenList --> 사용할 수 있는 메서드 확인 가능
         }
     </script>
 </body>

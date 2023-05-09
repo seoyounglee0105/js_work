@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        
+        .main--menu {
+            width: 550px;
+            padding: 10px 5px;
+            height: 100px; 
+            background-color: white; /* #031734 */
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .main--menu ul {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            list-style: none;
+        }
+
+        .main--menu ul li {
+            margin: 0 20px;
+        }
+
+        .main--menu ul li a {
+            
+            padding: 10px 200px;
+            font-size: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            color: black;
+        }
+
+        .main--menu ul li a:hover {
+            color: #075AA4;
+        }
+
+        #panel {
+            background-color: #ccc;
+            height: 400px;
+            width: 440px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 커서를 대면 메뉴가 스르륵 내려오게 하기 -->
+    <nav class="main--menu">
+        <ul id="flip">
+            <li><a href="#">메뉴</a>
+        </ul>
+        <div id="panel">스르륵</div>
+    </nav>
+    
+    <script>
+        $("#flip").hover(function(){
+            if (!$("#panel").is(":animated")) {
+                $("#panel").slideToggle();
+            }
+        }, function(){
+            if (!$("#panel").is(":animated")) {
+                $("#panel").slideToggle();
+            }
+        });
+    </script>
+
+</body>
+</html>
